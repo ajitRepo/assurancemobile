@@ -1,0 +1,7 @@
+{
+  "name": "KolleréAssurance",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
