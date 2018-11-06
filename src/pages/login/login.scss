@@ -1,0 +1,59 @@
+page-login {
+
+    ion-content {
+        background-image: url('../assets/imgs/background-login.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+        .logo {
+            margin-top: 27%;
+            margin-left: 46%;
+            
+        }
+        h4 {
+           text-align: center;
+           margin-top: 30%;
+            
+        }
+        .list-ios>.item-block:first-child {
+            border-top: none;
+        }
+        .connexion-form{
+            margin-top: 10%;
+            margin-left: 17.5%;
+            margin-bottom: 2%;
+            
+        }
+    
+        .connexion-inputs {
+            width: 85%;
+            background: transparent;
+    
+            
+            .icon-input {
+                width: 1em;
+                height: 1em;
+                margin-right: 10px;
+    
+            }
+            
+        }
+        .connexion-btn {
+            background-color: #69B501;
+            width: 140px;
+        }
+
+       
+         
+         ion-footer {
+             bottom: 0%;
+         }
+         .register-btn {
+             font-weight: bold;
+             background-color:rgba(116, 199, 0, 0.199);
+                         
+         }
+         
+    }
+
+}

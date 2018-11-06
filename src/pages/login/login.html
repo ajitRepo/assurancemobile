@@ -1,0 +1,62 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar transparent color="primary">
+        <button ion-button menuToggle color="primary">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <img class="logo" src="assets/imgs/kollere-login.png"/>
+
+    <h4><strong>Connexion</strong></h4>
+    
+
+  <ion-list class="connexion-form">
+      
+    <ion-item class="connexion-inputs">       
+        <ion-label floating><img class="icon-input" src="assets/icon/user.svg"/>Nom d'utilisateur</ion-label>
+        <ion-input type="text" #username></ion-input>
+    </ion-item>
+
+    <ion-item class="connexion-inputs">        
+        <ion-label floating><img class="icon-input" src="assets/icon/lock.svg"/>Mot de passe</ion-label>
+        <ion-input type="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col col-auto>
+         <button ion-button round class="connexion-btn" (click)="signIn()">Se connecter</button>
+      </ion-col>
+      <ion-col></ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col col-auto>
+        <button ion-button clear color="dark" class="connexion-social-btn">mot de passe oublié?</button>  
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+         
+    
+  <ion-footer>
+      <button ion-button clear full class="register-btn">Se connecter</button>
+  </ion-footer>
+</ion-content>
