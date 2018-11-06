@@ -29,7 +29,7 @@
 
     <ion-item class="connexion-inputs">        
         <ion-label floating><img class="icon-input" src="assets/icon/lock.svg"/>Mot de passe</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" #password></ion-input>
     </ion-item>
 
   </ion-list>
@@ -40,7 +40,7 @@
     <ion-row>
       <ion-col></ion-col>
       <ion-col col-auto>
-         <button ion-button round class="connexion-btn" (click)="signIn()">Se connecter</button>
+         <button ion-button round class="connexion-btn" (click)="login()">Se connecter</button>
       </ion-col>
       <ion-col></ion-col>
 
