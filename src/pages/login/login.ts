@@ -1,10 +1,16 @@
 import { Component,ViewChild, Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers} from '@angular/http';
+//import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
+
 import 'rxjs/add/operator/map';
 
 
-import { IonicPage, NavController,AlertController,LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, LoadingController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
+import { HomePage } from '../home/home';
+
+import { AuthProvider } from '../../providers/auth-provider';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,7 +26,7 @@ import { RegisterPage } from '../register/register';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+ 
   loading: any;
 
   
@@ -29,7 +35,8 @@ export class LoginPage {
   @ViewChild('password') password;
  
 
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public http: Http, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public http: Http, public loadingCtrl: LoadingController
+     /*public AuthService:AuthProvider*/) {
   }
 
   ionViewDidLoad() {
@@ -50,6 +57,28 @@ export class LoginPage {
   } */
 
 
+  /* login(){
+    
+    if(this.AuthService.authentification(this.username.value,this.password.value)){
+      let alert = this.alertCtrl.create({
+        title: 'Connexion',
+        subTitle: 'Vous etes connectés',
+        buttons: ['OK']
+      });
+      alert.present();
+      this.navCtrl.push(HomePage);
+
+    }else{
+      let alert = this.alertCtrl.create({
+        title: 'Erreur',
+        subTitle: "Mot de passe ou nom d'utilisateur incorrect",
+        buttons: ['OK']
+      });
+      alert.present();
+
+    }
+  } */
+
   login(){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -60,12 +89,16 @@ export class LoginPage {
     };
     console.log(JSON.stringify(body));
 
-   
-    this.http.post('http://212.71.244.7:8080/assurance/login', JSON.stringify(body), {headers: headers}).map(res=>res.json()).subscribe(data =>{console.log(data.message)});
-    //this.http.post('http://212.71.244.7:8080/assurance/login', JSON.stringify(body), {headers: headers}).subscribe((res) => {this.loading.dismiss();});
-        
-  }
+    return this.http.post('http://212.71.244.7:8080/assurance/login', JSON.stringify(body), {headers: headers})
+    .map(res=>res.json())
+    .subscribe(data =>{if(data.code==0){
+      this.navCtrl.push(HomePage)
+    }
+    
+    });
 
+        
+}
   showRegister(){
     this.navCtrl.push(RegisterPage);
   }
