@@ -1,22 +1,21 @@
 import { Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Http, Headers} from '@angular/http';
-import { App,LoadingController, NavController } from 'ionic-angular';
+import { App,LoadingController} from 'ionic-angular';
 
 @Injectable()
 export class EnrollProvider {
 
       loading: any;
-      private navCtrl: NavController;
- 
+      
     constructor(private app:App,public http: Http, public loadingCtrl: LoadingController) {
-        this.navCtrl = app.getActiveNav();
+        
     
     }
     
  
     
-    enrollement(matricule:number, marque:string, model:string, usage:string, puissance:number, typeCarburant:string, nombrePlaces:number, NFCid:string, nom:string, prenom:string, telephone:number, proprietaire:string){
+    enrollement(matricule:string, marque:string, model:string, usage:string, puissance:number, typeCarburant:string, nombrePlaces:number, NFCid:string, nom:string, prenom:string, telephone:number, proprietaire:string){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
@@ -25,9 +24,9 @@ export class EnrollProvider {
             marque: marque,
             model: model,
             usage: usage,
-            puisance: puissance,
+            puissance: Number(puissance),
             typeCarburant: typeCarburant,
-            nombrePlaces: nombrePlaces,
+            nombrePlaces: Number(nombrePlaces),
             chauffeur :{
             nfcid: NFCid,
             nom: nom,
@@ -39,8 +38,17 @@ export class EnrollProvider {
         console.log(JSON.stringify(body));
 
         return this.http.post('http://212.71.244.7:8080/assurance/savevoiture', JSON.stringify(body), {headers: headers})
-        .map(res=>res.json())
-        .subscribe(data =>{console.log(data.code)});
+        .map(res => {
+            // If request fails, throw an Error that will be caught
+            if(res.status < 200 || res.status >= 300) {
+              throw new Error('This request has failed ' + res.status);
+            } 
+            // If everything went fine, return the response
+            else {
+              return res.json();
+            } 
+          });
+        //.subscribe(data =>{console.log(data.code)});
             
     }
  

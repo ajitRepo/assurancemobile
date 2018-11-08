@@ -6,7 +6,9 @@ import { IonicPage, NavController, AlertController, LoadingController, App } fro
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
 
+
 import { AuthProvider } from '../../providers/auth-provider';
+import { isTrueProperty } from 'ionic-angular/umd/util/util';
 
 /**
  * Generated class for the LoginPage page.
@@ -38,29 +40,53 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
   
-   login(){
-    
-    if(this.AuthService.authentification(this.username.value,this.password.value)){
-      let alert = this.alertCtrl.create({
-        title: 'Connexion',
-        subTitle: 'Vous etes connectés',
-        buttons: ['OK']
-      });
-      alert.present();
-      this.navCtrl.push(HomePage);
+   /* login(){
+    this.AuthService.authentification(this.username.value,this.password.value)
+    .subscribe(data =>{
+      if(data.code==0){
+        let alert = this.alertCtrl.create({
+          title: 'Connexion',
+          subTitle: 'Vous êtes connecté',
+          buttons: ['OK']
+        });
+        alert.present();
+        this.navCtrl.setRoot(HomePage);
+      }else{     
+        let alert = this.alertCtrl.create({
+          title: 'Erreur',
+          subTitle: "Mot de passe ou nom d'utilisateur incorrect",
+          buttons: ['OK']
+        });
+        alert.present();
+  
+      }
+    });  
+  } */
 
-    }else{
-      
-      let alert = this.alertCtrl.create({
-        title: 'Erreur',
-        subTitle: "Mot de passe ou nom d'utilisateur incorrect",
-        buttons: ['OK']
-      });
-      alert.present();
-
-    }
-  } 
-
+  login(){
+    this.AuthService.authentification(this.username.value,this.password.value)
+    .subscribe(data =>{
+      if(data.code==0){
+        let alert = this.alertCtrl.create({
+          title: 'Connexion',
+          subTitle: 'Vous êtes connecté',
+          buttons: ['OK']
+        });
+        alert.present();
+        this.navCtrl.setRoot(HomePage);
+      }
+    },
+       err =>{
+         if (err.status==400) {
+          let alert = this.alertCtrl.create({
+            title: 'Erreur',
+            subTitle: "Mot de passe ou nom d'utilisateur incorrect",
+            buttons: ['OK']
+          });
+          alert.present();        
+         }
+       });  
+  }
   
   showRegister(){
     this.navCtrl.push(RegisterPage);

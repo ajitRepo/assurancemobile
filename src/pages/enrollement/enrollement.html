@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>enrollement</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Enrollement</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,22 +17,22 @@
     <ion-list class="connexion-form">
         <ion-item class="connexion-inputs">       
             <ion-label floating><img class="icon-input" src="assets/icon/user.svg"/>Matricule</ion-label>
-            <ion-input type="number" #matricule></ion-input>
+            <ion-input type="text" [(ngModel)]="matricule"></ion-input>
         </ion-item>
     
         <ion-item class="connexion-inputs">        
             <ion-label floating><img class="icon-input" src="assets/icon/lock.svg"/>Marque</ion-label>
-            <ion-input type="text" #marque></ion-input>
+            <ion-input type="text" [(ngModel)]="marque"></ion-input>
         </ion-item>
     
         <ion-item class="connexion-inputs">       
             <ion-label floating><img class="icon-input" src="assets/icon/user.svg"/>Model</ion-label>
-            <ion-input type="text" #model></ion-input>
+            <ion-input type="text" [(ngModel)]="model"></ion-input>
         </ion-item>
     
         <ion-item class="connexion-inputs">        
             <ion-label floating><img class="icon-input" src="assets/icon/lock.svg"/>Usage</ion-label>
-                <ion-select #usage>
+                <ion-select [(ngModel)]="usage">
                     <ion-option value="VP">VP</ion-option>
                     <ion-option value="TPV">TPV</ion-option>
                     <ion-option value="TPC">TPC</ion-option>
@@ -42,20 +42,19 @@
 
         <ion-item class="connexion-inputs">       
             <ion-label floating><img class="icon-input" src="assets/icon/user.svg"/>Puissance</ion-label>
-            <ion-input type="number" #puissance></ion-input>
+            <ion-input type="number" [(ngModel)]="puissance"></ion-input>
         </ion-item>
     
         <ion-item class="connexion-inputs">        
             <ion-label floating><img class="icon-input" src="assets/icon/lock.svg"/>Type de carburant</ion-label>
-            <ion-select #typeCarburant >
+            <ion-select [(ngModel)]="typeCarburant" >
                     <ion-option value="Essence">Essence</ion-option>
                     <ion-option value="Diesel">Diesel</ion-option>
-                    <ion-option value="hybride">Hybride</ion-option>
             </ion-select>
         </ion-item>
         <ion-item class="connexion-inputs">       
             <ion-label floating><img class="icon-input" src="assets/icon/user.svg"/>Nombre de places</ion-label>
-            <ion-input type="number" #nombrePlaces></ion-input>
+            <ion-input type="number" [(ngModel)]="nombrePlaces"></ion-input>
         </ion-item>
     
         
@@ -64,27 +63,27 @@
 
         <ion-item class="connexion-inputs">       
             <ion-label floating><img class="icon-input" src="assets/icon/user.svg"/>Id NFC</ion-label>
-            <ion-input type="text" #nfcID></ion-input>
+            <ion-input type="text" [(ngModel)]="NFCid"></ion-input>
         </ion-item>
     
         <ion-item class="connexion-inputs">        
             <ion-label floating><img class="icon-input" src="assets/icon/lock.svg"/>Nom</ion-label>
-            <ion-input type="text" #nom></ion-input>
+            <ion-input type="text" [(ngModel)]="nom"></ion-input>
         </ion-item>
     
         <ion-item class="connexion-inputs">       
             <ion-label floating><img class="icon-input" src="assets/icon/user.svg"/>Prenom</ion-label>
-            <ion-input type="text" #prenom></ion-input>
+            <ion-input type="text" [(ngModel)]="prenom"></ion-input>
         </ion-item>
     
         <ion-item class="connexion-inputs">        
             <ion-label floating><img class="icon-input" src="assets/icon/lock.svg"/>Telephone</ion-label>
-            <ion-input type="number" #telephone></ion-input>
+            <ion-input type="text" [(ngModel)]="telephone"></ion-input>
         </ion-item>
     
         <ion-item class="connexion-inputs">       
             <ion-label floating><img class="icon-input" src="assets/icon/user.svg"/>Proprietaire</ion-label>
-            <ion-select type="text" #proprietaire>
+            <ion-select type="text" [(ngModel)]="proprietaire">
                 <ion-option value="true">OUI</ion-option>
                 <ion-option value="false">NON</ion-option>
             </ion-select>
