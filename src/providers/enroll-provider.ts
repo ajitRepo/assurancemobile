@@ -38,8 +38,17 @@ export class EnrollProvider {
         console.log(JSON.stringify(body));
 
         return this.http.post('http://212.71.244.7:8080/assurance/savevoiture', JSON.stringify(body), {headers: headers})
-        .map(res=>res.json())
-        .subscribe(data =>{console.log(data.code)});
+        .map(res => {
+            // If request fails, throw an Error that will be caught
+            if(res.status < 200 || res.status >= 300) {
+              throw new Error('This request has failed ' + res.status);
+            } 
+            // If everything went fine, return the response
+            else {
+              return res.json();
+            } 
+          });
+        //.subscribe(data =>{console.log(data.code)});
             
     }
  

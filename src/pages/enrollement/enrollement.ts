@@ -42,7 +42,7 @@ export class EnrollementPage {
   }
 
 
-   saveAuto(){
+   /* saveAuto(){
     //this.matricule, this.marque, this.model, this.usage, this.puissance, this.typeCarburant, this.nombrePlaces, this.NFCid, this.nom, this.prenom, this.telephone, this.proprietaire
 
      if(this.EnrollService.enrollement(this.matricule, this.marque, this.model, this.usage, this.puissance, this.typeCarburant, this.nombrePlaces, this.NFCid, this.nom, this.prenom, this.telephone, this.proprietaire)){
@@ -64,6 +64,32 @@ export class EnrollementPage {
 
     } 
     
-  } 
+  }  */
+
+  saveAuto(){
+    this.EnrollService.enrollement(this.matricule, this.marque, this.model, this.usage, this.puissance, this.typeCarburant, this.nombrePlaces, this.NFCid, this.nom, this.prenom, this.telephone, this.proprietaire)
+    .subscribe(data =>{
+      if(data.code==0){
+        let alert = this.alertCtrl.create({
+          title: 'Enrollement',
+          subTitle: 'Données enregistrées avec success',
+          buttons: ['OK']
+        });
+        alert.present();
+      }
+    },
+       err =>{
+         if (err.status==400) {
+          let alert = this.alertCtrl.create({
+            title: 'Erreur',
+            subTitle: "Verifiez les champs",
+            buttons: ['OK']
+          });
+          alert.present();        
+         }
+       });  
+
+
+  }
 
 }
