@@ -4,19 +4,20 @@ import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-a
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { EnrollementPage } from '../pages/enrollement/enrollement';
+
 import { RegisterPage } from '../pages/register/register';
+
+
 import { UserProvider } from '../providers/user-provider';
 import { AuthProvider } from '../providers/auth-provider';
+import { EnrollProvider } from '../providers/enroll-provider';
+
 
 
 
 import { HttpModule } from '@angular/http';
-
-
-
-
 
 
 import { NFC, Ndef } from '@ionic-native/nfc';
@@ -30,22 +31,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
+    EnrollementPage,  
     LoginPage,
-    RegisterPage, 
+    RegisterPage,
+
+    
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    //Http,
-   
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    EnrollementPage,
     LoginPage,
     RegisterPage
   ],
@@ -56,6 +57,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Ndef,
     UserProvider,
     AuthProvider,
+    EnrollProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

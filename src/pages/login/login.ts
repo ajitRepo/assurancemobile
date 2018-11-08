@@ -1,12 +1,8 @@
 import { Component,ViewChild, Injectable } from '@angular/core';
-import { Http, Headers} from '@angular/http';
-//import { HttpClient } from '@angular/common/http';
+import { Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import 'rxjs/add/operator/map';
-
-
-import { IonicPage, NavController, AlertController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, LoadingController, App } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
 
@@ -35,29 +31,14 @@ export class LoginPage {
   @ViewChild('password') password;
  
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public http: Http, public loadingCtrl: LoadingController
-     /*public AuthService:AuthProvider*/) {
+  constructor(public navCtrl: NavController, private app:App, public alertCtrl: AlertController, public http: Http, public loadingCtrl: LoadingController, public AuthService:AuthProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
   
-  /* signIn() {
-    if(this.username.value == "admin" && this.password.value =="admin"){
-      let alert = this.alertCtrl.create({
-        title: 'New friend!',
-        subTitle: 'you are logged in ',
-        buttons: ['OK']
-      });
-      alert.present();
-
-    }
-    //console.log(this.username.value , this.password.value)
-  } */
-
-
-  /* login(){
+   login(){
     
     if(this.AuthService.authentification(this.username.value,this.password.value)){
       let alert = this.alertCtrl.create({
@@ -69,6 +50,7 @@ export class LoginPage {
       this.navCtrl.push(HomePage);
 
     }else{
+      
       let alert = this.alertCtrl.create({
         title: 'Erreur',
         subTitle: "Mot de passe ou nom d'utilisateur incorrect",
@@ -77,28 +59,9 @@ export class LoginPage {
       alert.present();
 
     }
-  } */
+  } 
 
-  login(){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    let body = {
-        login: this.username.value,
-        password: this.password.value
-    };
-    console.log(JSON.stringify(body));
-
-    return this.http.post('http://212.71.244.7:8080/assurance/login', JSON.stringify(body), {headers: headers})
-    .map(res=>res.json())
-    .subscribe(data =>{if(data.code==0){
-      this.navCtrl.push(HomePage)
-    }
-    
-    });
-
-        
-}
+  
   showRegister(){
     this.navCtrl.push(RegisterPage);
   }
