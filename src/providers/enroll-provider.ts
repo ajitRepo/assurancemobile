@@ -24,9 +24,9 @@ export class EnrollProvider {
             marque: marque,
             model: model,
             usage: usage,
-            puisance: puissance,
+            puissance: Number(puissance),
             typeCarburant: typeCarburant,
-            nombrePlaces: nombrePlaces,
+            nombrePlaces: Number(nombrePlaces),
             chauffeur :{
             nfcid: NFCid,
             nom: nom,

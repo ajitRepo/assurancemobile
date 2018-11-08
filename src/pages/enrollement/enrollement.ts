@@ -70,6 +70,7 @@ export class EnrollementPage {
     this.EnrollService.enrollement(this.matricule, this.marque, this.model, this.usage, this.puissance, this.typeCarburant, this.nombrePlaces, this.NFCid, this.nom, this.prenom, this.telephone, this.proprietaire)
     .subscribe(data =>{
       if(data.code==0){
+        
         let alert = this.alertCtrl.create({
           title: 'Enrollement',
           subTitle: 'Données enregistrées avec success',
