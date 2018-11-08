@@ -6,6 +6,7 @@ import { App,LoadingController, NavController } from 'ionic-angular';
 @Injectable()
 export class AuthProvider {
       loading: any;
+     // code:any;
       private navCtrl: NavController;
  
     constructor(private app:App,public http: Http, public loadingCtrl: LoadingController) {
@@ -26,10 +27,21 @@ export class AuthProvider {
         console.log(JSON.stringify(body));
 
         return this.http.post('http://212.71.244.7:8080/assurance/login', JSON.stringify(body), {headers: headers})
-        .map(res=>res.json())
-        .subscribe(data =>{console.log(data.code)});
+        .map(res=>res.json());
+        //.subscribe(data =>{console.log(data.code)});
+
+        
             
     }
+    
+
+    /* getCode(){
+        return this.code;
+    }
+    setCode(code:any){
+        this.code=code;
+
+    } */
  
     
  

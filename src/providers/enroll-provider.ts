@@ -1,22 +1,21 @@
 import { Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Http, Headers} from '@angular/http';
-import { App,LoadingController, NavController } from 'ionic-angular';
+import { App,LoadingController} from 'ionic-angular';
 
 @Injectable()
 export class EnrollProvider {
 
       loading: any;
-      private navCtrl: NavController;
- 
+      
     constructor(private app:App,public http: Http, public loadingCtrl: LoadingController) {
-        this.navCtrl = app.getActiveNav();
+        
     
     }
     
  
     
-    enrollement(matricule:number, marque:string, model:string, usage:string, puissance:number, typeCarburant:string, nombrePlaces:number, NFCid:string, nom:string, prenom:string, telephone:number, proprietaire:string){
+    enrollement(matricule:string, marque:string, model:string, usage:string, puissance:number, typeCarburant:string, nombrePlaces:number, NFCid:string, nom:string, prenom:string, telephone:number, proprietaire:string){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
