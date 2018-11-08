@@ -6,6 +6,7 @@ import { IonicPage, NavController, AlertController, LoadingController, App } fro
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
 
+
 import { AuthProvider } from '../../providers/auth-provider';
 import { isTrueProperty } from 'ionic-angular/umd/util/util';
 
@@ -39,7 +40,7 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
   
-   login(){
+   /* login(){
     this.AuthService.authentification(this.username.value,this.password.value)
     .subscribe(data =>{
       if(data.code==0){
@@ -59,36 +60,33 @@ export class LoginPage {
         alert.present();
   
       }
-    });
+    });  
+  } */
 
-     
-      
-    }
-    
-    
-    //console.log(code);
-    
-    /* if(this.AuthService.code==0){
-      let alert = this.alertCtrl.create({
-        title: 'Connexion',
-        subTitle: 'Vous êtes connecté',
-        buttons: ['OK']
-      });
-      alert.present();
-      this.navCtrl.setRoot(HomePage);
-
-    }else{
-      
-      let alert = this.alertCtrl.create({
-        title: 'Erreur',
-        subTitle: "Mot de passe ou nom d'utilisateur incorrect",
-        buttons: ['OK']
-      });
-      alert.present();
-
-    } */
-  
-
+  login(){
+    this.AuthService.authentification(this.username.value,this.password.value)
+    .subscribe(data =>{
+      if(data.code==0){
+        let alert = this.alertCtrl.create({
+          title: 'Connexion',
+          subTitle: 'Vous êtes connecté',
+          buttons: ['OK']
+        });
+        alert.present();
+        this.navCtrl.setRoot(HomePage);
+      }
+    },
+       err =>{
+         if (err.status==400) {
+          let alert = this.alertCtrl.create({
+            title: 'Erreur',
+            subTitle: "Mot de passe ou nom d'utilisateur incorrect",
+            buttons: ['OK']
+          });
+          alert.present();        
+         }
+       });  
+  }
   
   showRegister(){
     this.navCtrl.push(RegisterPage);
