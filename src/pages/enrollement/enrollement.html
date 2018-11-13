@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Enrollement</ion-title>
+    <ion-title>Enrôlement</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -63,7 +63,8 @@
 
         <ion-item class="connexion-inputs">       
             <ion-label floating><img class="icon-input" src="assets/icon/user.svg"/>Id NFC</ion-label>
-            <ion-input type="text" [(ngModel)]="NFCid"></ion-input>
+            <ion-input type="text" [(ngModel)]="NFCid" disabled></ion-input>
+            <button ion-button item-end (click)="getNfcId()">Get ID</button>
         </ion-item>
     
         <ion-item class="connexion-inputs">        
