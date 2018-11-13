@@ -19,9 +19,9 @@ import { RegisterPage } from '../pages/register/register';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  //rootPage:any = LoginPage;
+  rootPage:any = LoginPage;
   
-  rootPage:any = EnrollementPage;
+  //rootPage:any = EnrollementPage;
 
   loader:any;
 
