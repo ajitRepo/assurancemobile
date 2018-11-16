@@ -59,7 +59,6 @@ export class EnrollementPage {
       buttons: ['OK']
     });
 
-
     this.nfc.addNdefListener(() => {
       this.presentLoading();
       console.log('successfully attached ndef listener');
@@ -72,6 +71,7 @@ export class EnrollementPage {
     
       let message = this.ndef.textRecord('Hello world');
       this.nfc.share([message]).then(onSuccess.present).catch(onError.present);
+      
       this.NFCid = this.nfc.bytesToHexString(event.tag.id);
     });
    }

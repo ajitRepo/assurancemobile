@@ -1,0 +1,175 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>
+            Enrôlement
+      </ion-title>
+      
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+  
+      <ion-slides #enrollSlider pager>
+   
+          <ion-slide class="formSlideOne">
+              <!-- <img src="assets/icon/car-badge.png"/> -->
+              <button ion-button (click)="getToken()"> TEST TOKEN</button>
+         
+            <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+                                
+          
+            <ion-list no-lines>
+         
+                <form [formGroup]="slideOneForm">
+
+                    <!-- matricule -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/plaque.png"/>Matricule</ion-label>
+                        <ion-input  [(ngModel)]="matricule" formControlName="matricule" type="text" [class.invalid]="!slideOneForm.controls.matricule.valid && (slideOneForm.controls.matricule.dirty || submitAttempt)"></ion-input>
+                    </ion-item>      
+                    <ion-item *ngIf="!slideOneForm.controls.matricule.valid  && (slideOneForm.controls.matricule.dirty || submitAttempt)">
+                        <p>Please enter a valid name.</p>
+                    </ion-item>
+                    <!-- marque -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/tag.png"/>Marque</ion-label>
+                        <ion-input  [(ngModel)]="marque" formControlName="marque" type="text" [class.invalid]="!slideOneForm.controls.marque.valid && (slideOneForm.controls.marque.dirty || submitAttempt)"></ion-input>
+                    </ion-item>   
+                    <ion-item *ngIf="!slideOneForm.controls.marque.valid  && (slideOneForm.controls.marque.dirty || submitAttempt)">
+                        <p>Please enter a valid name.</p>
+                    </ion-item>
+                     <!-- model -->
+                    <ion-item>
+                            <ion-label floating><img class="icon-input" src="assets/icon/car.png"/>Model</ion-label>
+                            <ion-input  [(ngModel)]="model" formControlName="model" type="text" [class.invalid]="!slideOneForm.controls.model.valid && (slideOneForm.controls.model.dirty || submitAttempt)"></ion-input>
+                    </ion-item>       
+                    <ion-item *ngIf="!slideOneForm.controls.model.valid  && (slideOneForm.controls.model.dirty || submitAttempt)">
+                        <p>Please enter a valid name.</p>
+                    </ion-item>
+                    <!-- usage -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/services.png"/>Usage</ion-label>
+                        <ion-select  [(ngModel)]="usage" [class.invalid]="!slideOneForm.controls.usage.valid && (slideOneForm.controls.usage.dirty || submitAttempt)" formControlName="usage">
+                            <ion-option value="VP">VP</ion-option>
+                            <ion-option value="TPV">TPV</ion-option>
+                            <ion-option value="TPC">TPC</ion-option>
+                            <ion-option value="Scooter">Scooter</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <!-- puissance -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/engine.png"/>Puissance</ion-label>
+                        <ion-input  [(ngModel)]="puissance" formControlName="puissance" type="number" [class.invalid]="!slideOneForm.controls.puissance.valid && (slideOneForm.controls.puissance.dirty || submitAttempt)"></ion-input>
+                    </ion-item> 
+                    <ion-item *ngIf="!slideOneForm.controls.puissance.valid  && (slideOneForm.controls.puissance.dirty || submitAttempt)">
+                        <p>Please enter a valid age.</p>
+                    </ion-item>
+                    <!-- type de carburant -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/gas.png"/>Types de carburant</ion-label>
+                        <ion-select   [(ngModel)]="typeCarburant" [class.invalid]="!slideOneForm.controls.typeCarburant.valid && (slideOneForm.controls.typeCarburant.dirty || submitAttempt)" formControlName="typeCarburant">
+                            <ion-option value="Essence">Essence</ion-option>
+                            <ion-option value="Diesel">Diesel</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <!-- nombre de places -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/seat.png"/>Mombre de places</ion-label>
+                        <ion-input  [(ngModel)]="nombrePlaces"formControlName="nombrePlaces" type="number" [class.invalid]="!slideOneForm.controls.nombrePlaces.valid && (slideOneForm.controls.nombrePlaces.dirty || submitAttempt)"></ion-input>
+                    </ion-item> 
+                    <ion-item *ngIf="!slideOneForm.controls.nombrePlaces.valid  && (slideOneForm.controls.nombrePlaces.dirty || submitAttempt)">
+                        <p>Please enter a valid age.</p>
+                    </ion-item>
+                    
+         
+                </form>
+         
+            </ion-list>
+         
+          </ion-slide>
+          <!-- NFC Slide    -->
+          <ion-slide> 
+              <div class="nfc-container">      
+                <div class="nfc-imgs">
+                    <img src="assets/icon/nfc.png">
+                    <img src="assets/icon/card.png">
+                </div>
+
+                <h3>ID NFC</h3>
+                <p>
+                    Placer la carte à l'arrière du telephone<br/>
+                    NB: la fonction NFC doit être activée
+                </p>
+                <button ion-button clear> Activer NFC</button>      
+            </div>
+          </ion-slide>
+            
+          <ion-slide class="formSlideTwo">
+         
+            <ion-list no-lines>
+         
+                <form [formGroup]="slideTwoForm">
+                    <!-- ID NFC -->
+                    <ion-item>
+                         <!-- <ion-label floating><img class="icon-input" src="assets/icon/foul.png"/>Id NFC</ion-label> -->
+                        <ion-input hidden [(ngModel)]="NFCid" [class.invalid]="!slideTwoForm.controls.NFCid.valid && (slideTwoForm.controls.NFCid.dirty || submitAttempt)"
+                        [class.valid]="slideTwoForm.controls.NFCid.valid && (!slideTwoForm.controls.NFCid.dirty || submitAttempt)" formControlName="NFCid" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item *ngIf="!slideTwoForm.controls.NFCid.valid && !slideTwoForm.controls.NFCid.pending && (slideTwoForm.controls.NFCid.dirty || submitAttempt)">
+                        <p class="valid">ID non non récuperé, Placer la carte à l'arrière du telephone</p>
+                    </ion-item>
+                    <ion-item *ngIf="slideTwoForm.controls.NFCid.valid && slideTwoForm.controls.NFCid.pending && (!slideTwoForm.controls.NFCid.dirty || submitAttempt)">
+                        <p>ID Récupérer avec success</p>
+                    </ion-item>
+                    <!-- nom -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/contact.png"/>Nom</ion-label>
+                        <ion-input [(ngModel)]="nom" [class.invalid]="!slideTwoForm.controls.nom.valid && (slideTwoForm.controls.nom.dirty || submitAttempt)" formControlName="nom" type="text"></ion-input>            
+                    </ion-item>
+                    <ion-item *ngIf="!slideTwoForm.controls.nom.valid && !slideTwoForm.controls.nom.pending && (slideTwoForm.controls.nom.dirty || submitAttempt)">
+                        <p>Sorry, that username can not be used!</p>
+                    </ion-item>
+                    <!-- prenom -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/contact.png"/>Prenom</ion-label>
+                        <ion-input  [(ngModel)]="prenom"[class.invalid]="!slideTwoForm.controls.prenom.valid && (slideTwoForm.controls.prenom.dirty || submitAttempt)" formControlName="prenom" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item *ngIf="!slideTwoForm.controls.prenom.valid && !slideTwoForm.controls.prenom.pending && (slideTwoForm.controls.prenom.dirty || submitAttempt)">
+                        <p>Sorry, that username can not be used!</p>
+                    </ion-item>
+                    <!-- telephone -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/phone.png"/>Telephone</ion-label>
+                        <ion-input  [(ngModel)]="telephone" [class.invalid]="!slideTwoForm.controls.telephone.valid && (slideTwoForm.controls.telephone.dirty || submitAttempt)" formControlName="telephone" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item *ngIf="!slideTwoForm.controls.telephone.valid && !slideTwoForm.controls.telephone.pending && (slideTwoForm.controls.telephone.dirty || submitAttempt)">
+                        <p>Sorry, that username can not be used!</p>
+                    </ion-item>       
+                    <!-- proprietaire -->
+                    <ion-item>
+                        <ion-label floating><img class="icon-input" src="assets/icon/owner.png"/>Proprietaire</ion-label>
+                        <ion-select  [(ngModel)]="proprietaire" [class.invalid]="!slideTwoForm.controls.proprietaire.valid && (slideTwoForm.controls.proprietaire.dirty || submitAttempt)" formControlName="proprietaire">
+                            <ion-option value="true">OUI</ion-option>
+                            <ion-option value="false">NON</ion-option>
+                        </ion-select>
+                    </ion-item>
+    
+                </form>
+         
+            </ion-list>
+         
+            
+            <button ion-button full class="btn-save" color="primary" (click)="save()">ENREGISTRER</button>
+
+          </ion-slide>
+         
+        </ion-slides>
+  
+  </ion-content>
+  <ion-footer>
+        <button ion-button icon-only clear class="prev" (click)="prev()"><ion-icon name="arrow-back"></ion-icon></button>
+        <button ion-button icon-only clear class="next" (click)="next()"><ion-icon name="arrow-forward"></ion-icon></button>
+</ion-footer>

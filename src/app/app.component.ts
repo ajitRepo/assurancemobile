@@ -8,6 +8,8 @@ import { HomePage } from '../pages/home/home';
 
 import { LoginPage } from '../pages/login/login';
 import { EnrollementPage } from '../pages/enrollement/enrollement';
+import { TestPage } from '../pages/test/test';
+
 
 import { RegisterPage } from '../pages/register/register';
 
@@ -22,8 +24,11 @@ export class MyApp {
   rootPage:any = LoginPage;
   
   //rootPage:any = EnrollementPage;
+  //rootPage:any = TestPage;
+
 
   loader:any;
+  
 
   pages: Array<{title: string, component: any}>;
 
@@ -34,8 +39,10 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Connexion', component: LoginPage },
-      { title: 'Enrollement', component: EnrollementPage },
-      { title: 'Inscription', component: RegisterPage }
+      { title: 'Enrôlement', component: EnrollementPage },
+      { title: 'Inscription', component: RegisterPage },
+      { title: 'Test', component: TestPage }
+
 
 
     ];
@@ -56,4 +63,6 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  
 }

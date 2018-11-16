@@ -2,13 +2,16 @@ import { Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Http, Headers} from '@angular/http';
 import { App,LoadingController} from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 
 @Injectable()
 export class EnrollProvider {
 
       loading: any;
+      token:string;
       
-    constructor(private app:App,public http: Http, public loadingCtrl: LoadingController) {
+    constructor(private app:App,public http: Http, public storage: Storage, public loadingCtrl: LoadingController) {
         
     
     }
@@ -16,8 +19,16 @@ export class EnrollProvider {
  
     
     enrollement(matricule:string, marque:string, model:string, usage:string, puissance:number, typeCarburant:string, nombrePlaces:number, NFCid:string, nom:string, prenom:string, telephone:number, proprietaire:string){
+        
+        this.storage.get('mytoken').then((data) =>{
+          this.token=data;
+          console.log(this.token);
+        });  
+           
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'Bearer ' +this.token);
+
 
         let body = {
             matricule: matricule,
