@@ -59,7 +59,6 @@ export class EnrollementPage {
       buttons: ['OK']
     });
 
-
     this.nfc.addNdefListener(() => {
       this.presentLoading();
       console.log('successfully attached ndef listener');

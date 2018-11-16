@@ -8,6 +8,9 @@ import { LoginPage } from '../pages/login/login';
 import { EnrollementPage } from '../pages/enrollement/enrollement';
 import { TestPage } from '../pages/test/test';
 
+import { IonicStorageModule } from '@ionic/storage';
+
+
 
 import { RegisterPage } from '../pages/register/register';
 
@@ -44,6 +47,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

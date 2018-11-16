@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { NavController, AlertController, LoadingController, App } from 'ionic-angular';
 //import { AgeValidator } from  '../../validators/age';
@@ -6,6 +6,8 @@ import { NavController, AlertController, LoadingController, App } from 'ionic-an
 import { EnrollProvider } from '../../providers/enroll-provider';
 import { NFC, Ndef } from '@ionic-native/nfc';
 import { Http } from '@angular/http';
+import { UserProvider } from '../../providers/user-provider';
+
  
 
 @Component({
@@ -13,6 +15,9 @@ import { Http } from '@angular/http';
   templateUrl: 'test.html'
 })
 export class TestPage {
+    
+
+
     loading: any;
     //id:any;
     @ViewChild('enrollSlider') enrollSlider: any;
@@ -34,7 +39,10 @@ export class TestPage {
     
     submitAttempt: boolean = false;
 
-  constructor(private app:App, public alertCtrl: AlertController, public http: Http, public loadingCtrl: LoadingController, private nfc:NFC, private ndef:Ndef,  public EnrollService: EnrollProvider ,public formBuilder: FormBuilder) {
+  constructor(private app:App, public alertCtrl: AlertController, public http: Http,
+     public loadingCtrl: LoadingController, private nfc:NFC, private ndef:Ndef,  
+     public EnrollService: EnrollProvider,public UserService: UserProvider,
+     public formBuilder: FormBuilder) {
 
     this.slideOneForm = formBuilder.group({
 
@@ -67,9 +75,7 @@ export class TestPage {
     console.log('ionViewDidLoad EnrollListPage');
     this.getId();
 
-  }
-
-  
+  } 
 
   next(){
     this.enrollSlider.slideNext();
@@ -112,8 +118,7 @@ export class TestPage {
             });
             alert.present();        
            }
-         });
-        
+         });     
     }
  
   }
@@ -163,9 +168,7 @@ export class TestPage {
     this.loading.present();
 
   }
-  test(){
-    console.log(this.nom);
-  }
+  
 
 
 }
