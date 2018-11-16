@@ -8,7 +8,7 @@ import { HomePage } from '../home/home';
 
 
 import { AuthProvider } from '../../providers/auth-provider';
-import { isTrueProperty } from 'ionic-angular/umd/util/util';
+//import { isTrueProperty } from 'ionic-angular/umd/util/util';
 
 /**
  * Generated class for the LoginPage page.
@@ -26,6 +26,7 @@ import { isTrueProperty } from 'ionic-angular/umd/util/util';
 export class LoginPage {
  
   loading: any;
+  token:string;
 
   
 
@@ -66,12 +67,15 @@ export class LoginPage {
   login(){
     this.AuthService.authentification(this.username.value,this.password.value)
     .subscribe(data =>{
+      this.token=data.values.token;
+        console.log(this.token);
       if(data.code==0){
         let alert = this.alertCtrl.create({
           title: 'Connexion',
           subTitle: 'Vous êtes connecté',
           buttons: ['OK']
         });
+        
         alert.present();
         this.navCtrl.setRoot(HomePage);
       }

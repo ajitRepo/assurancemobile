@@ -8,6 +8,8 @@ import { HomePage } from '../pages/home/home';
 
 import { LoginPage } from '../pages/login/login';
 import { EnrollementPage } from '../pages/enrollement/enrollement';
+import { TestPage } from '../pages/test/test';
+
 
 import { RegisterPage } from '../pages/register/register';
 
@@ -19,9 +21,11 @@ import { RegisterPage } from '../pages/register/register';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any = LoginPage;
+  //rootPage:any = LoginPage;
   
   //rootPage:any = EnrollementPage;
+  rootPage:any = TestPage;
+
 
   loader:any;
 
@@ -35,7 +39,9 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Connexion', component: LoginPage },
       { title: 'Enrollement', component: EnrollementPage },
-      { title: 'Inscription', component: RegisterPage }
+      { title: 'Inscription', component: RegisterPage },
+      { title: 'Test', component: TestPage }
+
 
 
     ];

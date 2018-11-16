@@ -72,6 +72,7 @@ export class EnrollementPage {
     
       let message = this.ndef.textRecord('Hello world');
       this.nfc.share([message]).then(onSuccess.present).catch(onError.present);
+      
       this.NFCid = this.nfc.bytesToHexString(event.tag.id);
     });
    }

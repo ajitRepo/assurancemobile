@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { EnrollementPage } from '../pages/enrollement/enrollement';
+import { TestPage } from '../pages/test/test';
+
 
 import { RegisterPage } from '../pages/register/register';
 
@@ -34,6 +36,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     EnrollementPage,  
     LoginPage,
     RegisterPage,
+    TestPage
 
     
   ],
@@ -48,7 +51,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     EnrollementPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    TestPage
   ],
   providers: [
     StatusBar,
