@@ -18,6 +18,7 @@ export class CarsProvider {
  
     constructor(private app:App, public storage: Storage, public http: Http, public loadingCtrl: LoadingController) {
         this.navCtrl = app.getActiveNav();
+        //storage.clear();
         
     }
  

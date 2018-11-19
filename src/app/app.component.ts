@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 import { Network } from '@ionic-native/network';
 import { EnrollmentPage } from '../pages/enrollment/enrollment';
+import { LoginPage } from '../pages/login/login';
+
 import { EnrollListPage } from '../pages/enroll-list/enroll-list';
 import {PopoverComponent} from '../components/popover/popover'
 
@@ -16,10 +18,10 @@ import {PopoverComponent} from '../components/popover/popover'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  //rootPage:any = LoginPage;
+  rootPage:any = LoginPage;
   
   //rootPage:any = EnrollmentPage;
-  rootPage:any = EnrollListPage;
+  //rootPage:any = EnrollListPage;
 
   
 
