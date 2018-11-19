@@ -89,3 +89,12 @@ $colors: (
 
 //Button text transform
 $button-md-text-transform: none;
+
+//Toast Background
+$toast-ios-background:(transparent);
+$toast-md-background:(transparent);
+//Toast title
+$toast-md-title-color:(#73C700);
+$toast-ios-title-color:(#73C700);
+//$toast-ios-title-padding:30px;
+

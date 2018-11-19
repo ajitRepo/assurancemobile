@@ -47,6 +47,7 @@ export class EnrollProvider {
             }
         };
         console.log(JSON.stringify(body));
+        
 
         return this.http.post('http://212.71.244.7:8080/assurance/savevoiture', JSON.stringify(body), {headers: headers})
         .map(res => {

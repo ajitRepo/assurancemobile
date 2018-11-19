@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavParams, App } from 'ionic-angular';
+import { Http } from '@angular/http';
+import { CarsProvider } from '../../providers/cars-provider';
+import { PopoverComponent } from '../../components/popover/popover';
+
+ 
+
 
 /**
  * Generated class for the EnrollListPage page.
@@ -14,12 +20,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'enroll-list.html',
 })
 export class EnrollListPage {
+  @ViewChild('')
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public items:any;
+  public isSearchbarOpened = false;
+
+  constructor(private app:App, public http: Http, public CarsService: CarsProvider, public navParams: NavParams) {
+    this.loadData();
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EnrollListPage');
+  }
+  onSearch(event){
+    console.log(event.target.value);
+
+  }
+  loadData() {
+    this.CarsService.getCars();
   }
 
 }

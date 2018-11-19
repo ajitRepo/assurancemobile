@@ -1,47 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
-
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { EnrollementPage } from '../pages/enrollement/enrollement';
-import { TestPage } from '../pages/test/test';
-
+import { EnrollmentPage } from '../pages/enrollment/enrollment';
 import { IonicStorageModule } from '@ionic/storage';
-
-
-
 import { RegisterPage } from '../pages/register/register';
+import { EnrollListPage } from '../pages/enroll-list/enroll-list';
+
 
 
 import { UserProvider } from '../providers/user-provider';
 import { AuthProvider } from '../providers/auth-provider';
+import { CarsProvider } from '../providers/cars-provider';
 import { EnrollProvider } from '../providers/enroll-provider';
 
-
-
+import {PopoverComponent} from '../components/popover/popover'
 
 import { HttpModule } from '@angular/http';
-
-
 import { NFC, Ndef } from '@ionic-native/nfc';
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Network } from '@ionic-native/network';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    EnrollementPage,  
+    EnrollmentPage,  
     LoginPage,
     RegisterPage,
-    TestPage
-
-    
+    EnrollListPage,
+    PopoverComponent  
   ],
   imports: [
     BrowserModule,
@@ -52,11 +42,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    EnrollementPage,
+    EnrollmentPage,
     LoginPage,
     RegisterPage,
-    TestPage
+    EnrollListPage,
+    PopoverComponent,
   ],
   providers: [
     StatusBar,
@@ -66,6 +56,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     UserProvider,
     AuthProvider,
     EnrollProvider,
+    CarsProvider,
+    Network,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

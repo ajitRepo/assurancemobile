@@ -42,9 +42,20 @@ page-login {
             background-color: #69B501;
             width: 140px;
         }
-
     
          
+    }
+    .toast-success {
+        color: #69B501;
+        background: transparent;
+
+    }
+    .toast-error {
+
+    }
+    .loading {
+        background: transparent;
+
     }
 
     ion-footer {
