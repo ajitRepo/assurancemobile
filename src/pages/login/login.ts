@@ -4,9 +4,9 @@ import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 
 
-import { IonicPage, NavController, AlertController, LoadingController, App } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, LoadingController, App, ToastController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
-import { HomePage } from '../home/home';
+import { EnrollmentPage } from '../enrollment/enrollment';
 
 
 import { AuthProvider } from '../../providers/auth-provider';
@@ -36,7 +36,7 @@ export class LoginPage {
   @ViewChild('password') password;
  
 
-  constructor(public navCtrl: NavController, public storage: Storage, private app:App, public alertCtrl: AlertController, public http: Http, public loadingCtrl: LoadingController, public AuthService:AuthProvider) {
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public storage: Storage, private app:App, public alertCtrl: AlertController, public http: Http, public loadingCtrl: LoadingController, public AuthService:AuthProvider) {
   }
 
   ionViewDidLoad() {
@@ -44,30 +44,46 @@ export class LoginPage {
   }
 
   login(){
+
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      cssClass:'loading'  
+    });
+    loading.present();
+    //subscription
     this.AuthService.authentification(this.username.value,this.password.value)
     .subscribe(data =>{
       this.Token=data.values.token;
+      //this.Token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhaml0IiwiY3JlYXRlZCI6MTU0MjM3MTc0Mjk0OSwiZXhwIjoxNTQyOTc2NTQyfQ.BRdzzFPultTbS1JvQpUygS_0srWe1tAbYA6tlQbtHk4zoeti4-4vvIGhAoTVylCuXgr0cQpeIwXIn9s6mPhvIA";
+      this.storage.clear();
       this.setToken(this.Token);
-      //console.log(this.Token);
+   
       if(data.code==0){
-        let alert = this.alertCtrl.create({
-          title: 'Connexion',
-          subTitle: 'Vous êtes connecté',
-          buttons: ['OK']
-        });
         
-        alert.present();
-        this.navCtrl.setRoot(HomePage);
+        let message = data.message
+        loading.dismiss();
+        let toast = this.toastCtrl.create({
+          message: message,
+          duration: 3000,
+          position: 'middle',
+          cssClass: "toast-success"
+        });  
+        toast.present();
+        this.navCtrl.setRoot(EnrollmentPage);
       }
     },
        err =>{
-         if (err.status==400) {
+        loading.dismiss();
+        let error = err.json();
+        let message = error.message;
+        console.log(message);
+         if (error.code!=undefined) {
           let alert = this.alertCtrl.create({
-            title: 'Erreur',
-            subTitle: "Mot de passe ou nom d'utilisateur incorrect",
+            //title: 'Erreur'+error.code,
+            subTitle: message,
             buttons: ['OK']
           });
-          alert.present();        
+          alert.present();             
          }
        });  
   }
@@ -85,5 +101,7 @@ export class LoginPage {
   showRegister(){
     this.navCtrl.push(RegisterPage);
   }
+
+  
 
 }
