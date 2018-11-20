@@ -29,7 +29,11 @@ export class CarsProvider {
           });
 
         let headers = new Headers();
+        headers.append('Accept', 'application/json');
+        //headers.append('Origin', 'http://212.71.244.7:8080/assurance');
         headers.append('Content-Type', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
+		    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
         headers.append('Authorization', 'Bearer ' +this.token);
 
 
@@ -43,8 +47,11 @@ export class CarsProvider {
             else {
               return res.json();
             } 
-          }).subscribe(data =>{console.log(data)}, err => {console.log(err)});  
+          });
             
+    }
+    getCar(){
+
     }
     
  

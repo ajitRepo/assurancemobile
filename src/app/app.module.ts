@@ -8,14 +8,14 @@ import { IonicStorageModule } from '@ionic/storage';
 import { RegisterPage } from '../pages/register/register';
 import { EnrollListPage } from '../pages/enroll-list/enroll-list';
 
-
-
 import { UserProvider } from '../providers/user-provider';
 import { AuthProvider } from '../providers/auth-provider';
 import { CarsProvider } from '../providers/cars-provider';
 import { EnrollProvider } from '../providers/enroll-provider';
 
-import {PopoverComponent} from '../components/popover/popover'
+import {PopoverComponent} from '../components/popover/popover';
+import { Voiture } from '../components/voiture/voiture';
+import { Chauffeur } from '../components/chauffeur/chauffeur';
 
 import { HttpModule } from '@angular/http';
 import { NFC, Ndef } from '@ionic-native/nfc';
@@ -31,7 +31,9 @@ import { Network } from '@ionic-native/network';
     LoginPage,
     RegisterPage,
     EnrollListPage,
-    PopoverComponent  
+    PopoverComponent,
+    Voiture,
+    Chauffeur
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,8 @@ import { Network } from '@ionic-native/network';
     RegisterPage,
     EnrollListPage,
     PopoverComponent,
+    Voiture,
+    Chauffeur
   ],
   providers: [
     StatusBar,
