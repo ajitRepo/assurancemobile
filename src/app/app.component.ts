@@ -7,6 +7,7 @@ import { Network } from '@ionic-native/network';
 import { EnrollmentPage } from '../pages/enrollment/enrollment';
 import { LoginPage } from '../pages/login/login';
 
+
 import { EnrollListPage } from '../pages/enroll-list/enroll-list';
 import {PopoverComponent} from '../components/popover/popover'
 
@@ -21,7 +22,7 @@ export class MyApp {
   rootPage:any = LoginPage;
   
   //rootPage:any = EnrollmentPage;
-  //rootPage:any = EnrollListPage;
+//rootPage:any = EnrollListPage;
 
   
 

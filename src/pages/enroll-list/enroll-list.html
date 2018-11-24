@@ -8,7 +8,7 @@
 
   <ion-navbar color="primary">
       <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
+          <ion-icon name="md-list"></ion-icon>
       </button>
     <ion-title *ngIf="!isSearchbarOpened">Liste</ion-title>
     <ion-searchbar *ngIf="isSearchbarOpened" showCancelButton="true" (search)="onSearch($event)" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
@@ -26,6 +26,66 @@
 
 
 <ion-content padding>
-  <voiture [matricule]="message"></voiture>
+  
+    <div>
+        <ion-segment [(ngModel)]="list">
+          <ion-segment-button value="voitures">
+            Voitures
+          </ion-segment-button>
+          <ion-segment-button value="chauffeurs">
+            chauffeurs
+          </ion-segment-button>
+        </ion-segment>
+    </div>
+
+      <div [ngSwitch]="list">
+          <ion-list *ngSwitchCase="'voitures'">
+              <!-- <ion-item class="item" *ngFor="let Voiture of (voitures | keys)">     
+                  <img item-start class="icon" src="assets/icon/plaque.png"/>
+                  <div class="car">
+                  <h2>{{ Voiture.value.matricule }}</h2>
+                   <p>{{ Voiture.value.marque }} {{ Voiture.value.model}}</p>
+                  </div>
+                   <div class="driver">
+                   <img class="icon-driver" src="assets/icon/conducteur.png">
+                   {{ Voiture.value.chauffeur.nom }} {{ Voiture.value.chauffeur.nom }}
+                   </div> 
+                 
+                  <button ion-button clear item-end><ion-icon name="ios-arrow-forward" color="yellow"></ion-icon></button> 
+              </ion-item> -->
+              <ion-item *ngFor="let Voiture of (voitures | keys)">
+                  <ion-avatar item-start>
+                      <img class="icon" src="assets/icon/plaque.png">
+                    </ion-avatar>
+                  <div class="car">
+                  <h2>{{ Voiture.value.matricule }}</h2>
+                  <h3>{{ Voiture.value.marque }} {{ Voiture.value.model}}</h3>
+                </div>
+                  <p class="driver"><img class="icon-driver" src="assets/icon/conducteur.png">{{ Voiture.value.chauffeur.nom }} {{ Voiture.value.chauffeur.nom }}</p>
+              </ion-item>
+
+          </ion-list>
+        
+          <ion-list *ngSwitchCase="'chauffeurs'">
+              <ion-item *ngFor="let Voiture of (voitures | keys)">
+                  <ion-avatar item-start>
+                      <img class="icon-driver" src="assets/icon/conducteur.png">
+                    </ion-avatar>
+                  <div class="car">
+                  <h2>{{ Voiture.value.chauffeur.nom }} {{ Voiture.value.chauffeur.nom }}</h2>
+                  <h3>{{ Voiture.value.chauffeur.telephone }} </h3>
+                </div>
+                  <p class="driver"><img class="icon" src="assets/icon/plaque.png">{{ Voiture.value.matricule }}</p>
+              </ion-item>
+          </ion-list>
+      </div>
+      
+
+  
+
+
+  
+ <!--  <option *ngFor="let Voiture of (voitures | keys)" value="{{ Voiture.key }}">{{ Voiture.value.matricule }}</option>
+ -->
 
 </ion-content>

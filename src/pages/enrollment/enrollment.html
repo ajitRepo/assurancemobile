@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary">
       <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
+          <ion-icon name="md-list"></ion-icon>
       </button>
     <ion-title>
           Enrôlement
@@ -36,7 +36,7 @@
                       <ion-input  [(ngModel)]="matricule" formControlName="matricule" type="text" [class.invalid]="!slideOneForm.controls.matricule.valid && (slideOneForm.controls.matricule.dirty || submitAttempt)"></ion-input>
                   </ion-item>      
                   <ion-item *ngIf="!slideOneForm.controls.matricule.valid  && (slideOneForm.controls.matricule.dirty || submitAttempt)">
-                      <p>Please enter a valid name.</p>
+                      <p>Merci d'entrer un matricule valide.</p>
                   </ion-item>
                   <!-- marque -->
                   <ion-item>
@@ -44,7 +44,7 @@
                       <ion-input  [(ngModel)]="marque" formControlName="marque" type="text" [class.invalid]="!slideOneForm.controls.marque.valid && (slideOneForm.controls.marque.dirty || submitAttempt)"></ion-input>
                   </ion-item>   
                   <ion-item *ngIf="!slideOneForm.controls.marque.valid  && (slideOneForm.controls.marque.dirty || submitAttempt)">
-                      <p>Please enter a valid name.</p>
+                      <p>Merci d'entrer une marque valide</p>
                   </ion-item>
                    <!-- model -->
                   <ion-item>
@@ -52,7 +52,7 @@
                           <ion-input  [(ngModel)]="model" formControlName="model" type="text" [class.invalid]="!slideOneForm.controls.model.valid && (slideOneForm.controls.model.dirty || submitAttempt)"></ion-input>
                   </ion-item>       
                   <ion-item *ngIf="!slideOneForm.controls.model.valid  && (slideOneForm.controls.model.dirty || submitAttempt)">
-                      <p>Please enter a valid name.</p>
+                      <p>Merci d'entrer un model valide</p>
                   </ion-item>
                   <!-- usage -->
                   <ion-item>
@@ -69,8 +69,15 @@
                       <ion-label floating><img class="icon-input" src="assets/icon/engine.png"/>Puissance</ion-label>
                       <ion-input  [(ngModel)]="puissance" formControlName="puissance" type="number" [class.invalid]="!slideOneForm.controls.puissance.valid && (slideOneForm.controls.puissance.dirty || submitAttempt)"></ion-input>
                   </ion-item> 
+               <!--  <ion-item>
+                  <ion-range formControlName="warmth" min="1000" max="2000" step="100" snaps="true" pin="true" [(ngModel)]="warmth" color="primary">
+                        <ion-icon range-left small color="primary" name="flash"></ion-icon>
+                        <ion-icon range-right color="primary" name="flash"></ion-icon>
+                    </ion-range>
+                </ion-item> -->
+                
                   <ion-item *ngIf="!slideOneForm.controls.puissance.valid  && (slideOneForm.controls.puissance.dirty || submitAttempt)">
-                      <p>Please enter a valid age.</p>
+                      <p>Merci d'entrer une valeur valide.</p>
                   </ion-item>
                   <!-- type de carburant -->
                   <ion-item>
@@ -86,7 +93,7 @@
                       <ion-input  [(ngModel)]="nombrePlaces"formControlName="nombrePlaces" type="number" [class.invalid]="!slideOneForm.controls.nombrePlaces.valid && (slideOneForm.controls.nombrePlaces.dirty || submitAttempt)"></ion-input>
                   </ion-item> 
                   <ion-item *ngIf="!slideOneForm.controls.nombrePlaces.valid  && (slideOneForm.controls.nombrePlaces.dirty || submitAttempt)">
-                      <p>Please enter a valid age.</p>
+                      <p>Merci d'entrer une valeur valide.</p>
                   </ion-item>
                   
        
@@ -135,7 +142,7 @@
                       <ion-input [(ngModel)]="nom" [class.invalid]="!slideTwoForm.controls.nom.valid && (slideTwoForm.controls.nom.dirty || submitAttempt)" formControlName="nom" type="text"></ion-input>            
                   </ion-item>
                   <ion-item *ngIf="!slideTwoForm.controls.nom.valid && !slideTwoForm.controls.nom.pending && (slideTwoForm.controls.nom.dirty || submitAttempt)">
-                      <p>Sorry, that username can not be used!</p>
+                      <p>Merci d'entrer un nom valide</p>
                   </ion-item>
                   <!-- prenom -->
                   <ion-item>
@@ -143,7 +150,7 @@
                       <ion-input  [(ngModel)]="prenom"[class.invalid]="!slideTwoForm.controls.prenom.valid && (slideTwoForm.controls.prenom.dirty || submitAttempt)" formControlName="prenom" type="text"></ion-input>
                   </ion-item>
                   <ion-item *ngIf="!slideTwoForm.controls.prenom.valid && !slideTwoForm.controls.prenom.pending && (slideTwoForm.controls.prenom.dirty || submitAttempt)">
-                      <p>Sorry, that username can not be used!</p>
+                      <p>Merci d'entrer un prenom valide</p>
                   </ion-item>
                   <!-- telephone -->
                   <ion-item>
@@ -151,7 +158,7 @@
                       <ion-input  [(ngModel)]="telephone" [class.invalid]="!slideTwoForm.controls.telephone.valid && (slideTwoForm.controls.telephone.dirty || submitAttempt)" formControlName="telephone" type="text"></ion-input>
                   </ion-item>
                   <ion-item *ngIf="!slideTwoForm.controls.telephone.valid && !slideTwoForm.controls.telephone.pending && (slideTwoForm.controls.telephone.dirty || submitAttempt)">
-                      <p>Sorry, that username can not be used!</p>
+                      <p>Merci d'entrer un numero de telephone valide</p>
                   </ion-item>       
                   <!-- proprietaire -->
                   <ion-item>
@@ -161,6 +168,10 @@
                           <ion-option value="false">NON</ion-option>
                       </ion-select>
                   </ion-item>
+                  <!-- <ion-item>
+                        <ion-label>Sam</ion-label>
+                        <ion-toggle formControlName="proprietaire" [(ngModel)]="toggle" checked="true"></ion-toggle>
+                </ion-item> -->
   
               </form>
        

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Chauffeur } from '../../components/chauffeur/chauffeur';
+
 
 /**
  * Generated class for the VoitureComponent component.
@@ -14,13 +16,15 @@ import { Component, Input } from '@angular/core';
 })
 export class Voiture {  
   @Input()
-    public matricule:string;
+    public chauffeurs:Chauffeur;
+
     public marque:string;
+    public matricule:string;
     public model:string;
-    public usage:string;
+    public nombrePlaces:number;
     public puissance:number;
     public typeCarburant:string;
-    public nombrePlaces:number
+    public usage:string;
 
    constructor() {
     console.log('Hello VoitureComponent Component');
