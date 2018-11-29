@@ -110,12 +110,12 @@
                   <img src="assets/icon/card.png">
               </div>
 
-              <h3>ID NFC</h3>
+              <h3>ID CARTE</h3>
               <p>
                   Placer la carte à l'arrière du telephone<br/>
-                  NB: la fonction NFC doit être activée
               </p>
-              <button ion-button clear> Activer NFC</button>      
+              <p>NB: la fonction NFC doit être activée</p>
+              <!-- <button ion-button clear>Activer NFC</button>       -->
           </div>
         </ion-slide>
           
@@ -127,7 +127,7 @@
                   <!-- ID NFC -->
                   <ion-item>
                        <!-- <ion-label floating><img class="icon-input" src="assets/icon/foul.png"/>Id NFC</ion-label> -->
-                      <ion-input [(ngModel)]="NFCid" [class.invalid]="!slideTwoForm.controls.NFCid.valid && (slideTwoForm.controls.NFCid.dirty || submitAttempt)"
+                      <ion-input hidden [(ngModel)]="NFCid" [class.invalid]="!slideTwoForm.controls.NFCid.valid && (slideTwoForm.controls.NFCid.dirty || submitAttempt)"
                       [class.valid]="slideTwoForm.controls.NFCid.valid && (!slideTwoForm.controls.NFCid.dirty || submitAttempt)" formControlName="NFCid" type="text"></ion-input>
                   </ion-item>
                   <ion-item *ngIf="!slideTwoForm.controls.NFCid.valid && !slideTwoForm.controls.NFCid.pending && (slideTwoForm.controls.NFCid.dirty || submitAttempt)">

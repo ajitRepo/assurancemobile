@@ -3,6 +3,7 @@ import 'rxjs/add/operator/map';
 
 import {Http, Headers} from '@angular/http';
 import { App,LoadingController, NavController } from 'ionic-angular';
+import { LoginPage } from '../pages/login/login';
 
 @Injectable()
 export class AuthProvider {
@@ -40,10 +41,12 @@ export class AuthProvider {
             } 
           });
           //.subscribe(data =>{console.log(data)}, err => {console.log(err)});
-        
-
-        
             
+    }
+
+    logout(){
+        this.navCtrl.setRoot(LoginPage);
+        //this.storage.clear();
     }
     
 

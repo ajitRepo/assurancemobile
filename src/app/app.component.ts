@@ -44,7 +44,7 @@ export class MyApp {
   }
 
   initializeApp() {
-    //this.checkNetwork();
+    this.checkNetwork();
     
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -61,17 +61,23 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
   checkNetwork(){
-    this.network.onDisconnect().subscribe(() => {
-      this.storage.set('conn', false);
-      let conoff = this.ToastCtrl.create({
-          closeButtonText: 'Ok',
-          showCloseButton: true,
-          message: "vous n'êtes pas connecté",
-          position: 'top'
-      });
-  
-      conoff.present();
-  });
+      this.network.onDisconnect().subscribe(() => {
+        this.storage.set('conn', false);
+        let conoff = this.ToastCtrl.create({
+            closeButtonText: 'Ok',
+            showCloseButton: true,
+            message: "vous n'êtes pas connecté",
+            position: 'top'
+        });
+    
+        conoff.present();
+    });
+  }
+  logout(){
+    this.nav.setRoot(LoginPage);
+    this.storage.clear();
+    
+
   }
 
   
