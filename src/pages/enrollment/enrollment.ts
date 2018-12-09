@@ -25,6 +25,9 @@ export class EnrollmentPage {
     slideOneForm: FormGroup;
     slideTwoForm: FormGroup;
 
+    //warmth: number = 0;
+    ///toggle:boolean;
+
     matricule:string;
     marque:string;
     model:string;
@@ -54,6 +57,7 @@ export class EnrollmentPage {
       model: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
       usage: [ , Validators.required],
       puissance: [ , Validators.required],
+      //warmth: [ , Validators.required],
       typeCarburant: [ '', Validators.required],
       nombrePlaces: [ , Validators.required]
      // age: [Number(), AgeValidator.isValid]
@@ -66,7 +70,9 @@ export class EnrollmentPage {
       nom: ['', Validators.compose([Validators.maxLength(10), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       prenom: ['', Validators.compose([Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       telephone: ['', Validators.compose([Validators.maxLength(18), Validators.pattern('[0-9]*'), Validators.required])],
-      proprietaire: ['', Validators.required]
+      proprietaire: ['', Validators.required],
+      //toggle: ['', Validators.required]
+
      
     }); 
 

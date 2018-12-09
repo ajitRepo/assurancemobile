@@ -17,6 +17,7 @@ import {PopoverComponent} from '../components/popover/popover';
 import { Voiture } from '../components/voiture/voiture';
 import { Chauffeur } from '../components/chauffeur/chauffeur';
 
+import { KeysPipe } from '../pipes/keys/keys';
 import { HttpModule } from '@angular/http';
 import { NFC, Ndef } from '@ionic-native/nfc';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -33,7 +34,8 @@ import { Network } from '@ionic-native/network';
     EnrollListPage,
     PopoverComponent,
     Voiture,
-    Chauffeur
+    Chauffeur,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

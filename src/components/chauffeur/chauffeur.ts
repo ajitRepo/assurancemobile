@@ -11,13 +11,14 @@ import { Component } from '@angular/core';
   templateUrl: 'chauffeur.html'
 })
 export class Chauffeur {
+    public id:number;
+    public idnfc:string;
+    public nom:string;
+    public prenom:string;
+    public proprietaire:boolean;
+    public telephone:string;
 
-  constructor(public nom:string,
-    public prenom:string,
-    public idnfc:string,
-    public telephone:string,
-    public proprietaire:boolean,
-    public id:number) {
+  constructor() {
     console.log('Hello ChauffeurComponent Component');
     
   }
