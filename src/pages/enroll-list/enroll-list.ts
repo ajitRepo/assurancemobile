@@ -33,15 +33,7 @@ export class EnrollListPage {
   public items:any;
   public isSearchbarOpened = false;
 
-  heroes = [
-    new Hero(1, 'Windstorm'),
-    new Hero(13, 'Bombasto'),
-    new Hero(15, 'Magneta'),
-    new Hero(20, 'Tornado')
-  ];
-
-  myHero = this.heroes[0];
-
+ 
   voitures = new Voiture();
   
   //voitures: Array<Voiture>[];
@@ -49,9 +41,6 @@ export class EnrollListPage {
     return Object.keys(this.voitures);
   }
 
-  
-  
-  //mycar = this.voitures[0];
 
   constructor(private app:App, public http: Http, public CarsService: CarsProvider, public navParams: NavParams) {
     console.log(this.key);
