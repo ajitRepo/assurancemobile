@@ -2,13 +2,7 @@ import { Component, ViewChild, NgModule } from '@angular/core';
 import { IonicPage, NavParams, App } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { CarsProvider } from '../../providers/cars-provider';
-import { Hero } from '../../providers/hero';
-
-import { PopoverComponent } from '../../components/popover/popover';
 import { Voiture } from '../../components/voiture/voiture';
-import { Chauffeur } from '../../components/chauffeur/chauffeur';
-
-import {KeysPipe} from '../../pipes/keys/keys'
 
 
 

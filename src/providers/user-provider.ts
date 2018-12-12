@@ -26,7 +26,7 @@ export class UserProvider {
  
     getUsers(){
  
-        return this.http.get('http://212.71.244.7:8080/assurance/getuser').map(res => res.json());
+        return this.http.get('http://45.79.88.252/assurance/getuser').map(res => res.json());
  
     }
 
@@ -40,7 +40,7 @@ export class UserProvider {
         headers.append('Authorization', 'Bearer ' +this.token);
 
 
-        return this.http.get('http://212.71.244.7:8080/assurance/getuser',{headers: headers})
+        return this.http.get('http://45.79.88.252/assurance/getuser',{headers: headers})
         .map(res => {
             // If request fails, throw an Error that will be caught
             if(res.status < 200 || res.status >= 300) {

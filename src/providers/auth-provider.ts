@@ -22,6 +22,8 @@ export class AuthProvider {
     authentification(username:string, password:string){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        //headers.append('Access-Control-Allow-Origin', '*');
+		//headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
 
         let body = {
             login: username,
@@ -29,7 +31,7 @@ export class AuthProvider {
         };
         console.log(JSON.stringify(body));
 
-        return this.http.post('http://212.71.244.7:8080/assurance/login', JSON.stringify(body), {headers: headers})
+        return this.http.post('http://45.79.88.252/assurance/login', JSON.stringify(body), {headers: headers})
         .map(res => {
             // If request fails, throw an Error that will be caught
             if(res.status < 200 || res.status >= 300) {
