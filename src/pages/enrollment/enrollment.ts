@@ -119,6 +119,7 @@ export class EnrollmentPage {
         this.enrollSlider.slideTo(1);
     }
     else {
+      this.presentLoading();
       this.EnrollService.enrollement(this.matricule, this.marque, this.model, this.usage, this.puissance, this.typeCarburant, this.nombrePlaces, this.NFCid, this.nom, this.prenom, this.telephone, this.proprietaire)
       .subscribe(data =>{
         let message = data.message;
@@ -131,6 +132,7 @@ export class EnrollmentPage {
             subTitle: message,
             buttons: ['OK']
           });
+          this.dismissLoading();
           alert.present();
         }
       },
@@ -144,6 +146,7 @@ export class EnrollmentPage {
               subTitle: message,
               buttons: ['OK']
             });
+            this.dismissLoading()
             alert.present();        
            }
          });     
@@ -184,17 +187,23 @@ export class EnrollmentPage {
       this.nfc.share([message]).then(onSuccess.present).catch(onError.present);
       onSuccess.present();
       
-      this.NFCid = this.nfc.bytesToHexString(event.tag.id);
+      this.NFCid = this.nfc.bytesToHexString(event.tag.id).toUpperCase();
+      
     });
    }
 
    presentLoading() {
  
     this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
+      spinner: 'crescent',
+      cssClass:'loading'  
     });
 
     this.loading.present();
+
+  }
+  dismissLoading() {
+    this.loading.dismiss();
 
   }
   

@@ -54,7 +54,6 @@ export class LoginPage {
     this.AuthService.authentification(this.username.value,this.password.value)
     .subscribe(data =>{
       this.Token=data.values.token;
-      //this.Token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhaml0IiwiY3JlYXRlZCI6MTU0MjM3MTc0Mjk0OSwiZXhwIjoxNTQyOTc2NTQyfQ.BRdzzFPultTbS1JvQpUygS_0srWe1tAbYA6tlQbtHk4zoeti4-4vvIGhAoTVylCuXgr0cQpeIwXIn9s6mPhvIA";
       this.storage.clear();
       this.setToken(this.Token);
    

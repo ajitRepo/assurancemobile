@@ -49,7 +49,7 @@ export class EnrollProvider {
         console.log(JSON.stringify(body));
         
 
-        return this.http.post('http://212.71.244.7:8080/assurance/savevoiture', JSON.stringify(body), {headers: headers})
+        return this.http.post('http://45.79.88.252/assurance/savevoiture', JSON.stringify(body), {headers: headers})
         .map(res => {
             // If request fails, throw an Error that will be caught
             if(res.status < 200 || res.status >= 300) {
