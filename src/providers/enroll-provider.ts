@@ -28,8 +28,10 @@ export class EnrollProvider {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'Bearer ' +this.token);
-
-
+        headers.append('Accept','application/json');
+        headers.append('Access-Control-Allow-Origin' , '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+    
         let body = {
             matricule: matricule,
             marque: marque,
