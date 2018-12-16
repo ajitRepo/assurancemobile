@@ -140,6 +140,7 @@ export class EnrollmentPage {
           let error = err.json();
           let message = error.message;
           console.log(error.code);
+          console.log(error.status);
            if (error.code!=undefined) {
             let alert = this.alertCtrl.create({
               //title: 'Erreur',

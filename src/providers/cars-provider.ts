@@ -34,7 +34,7 @@ export class CarsProvider {
         headers.append('Content-Type', 'application/json');
         headers.append('Access-Control-Allow-Origin', '*');
 		    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
-        headers.append('Authorization', 'Bearer ' +this.token);
+        headers.append('Authorization', 'Bearer '+this.token);
 
 
         return this.http.get('http://45.79.88.252/assurance/voitures',{headers: headers})

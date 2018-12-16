@@ -22,8 +22,7 @@ export class AuthProvider {
     authentification(username:string, password:string){
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        //headers.append('Access-Control-Allow-Origin', '*');
-		//headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+        
 
         let body = {
             login: username,

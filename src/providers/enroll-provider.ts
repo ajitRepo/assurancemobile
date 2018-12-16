@@ -10,7 +10,7 @@ export class EnrollProvider {
 
       loading: any;
       token:string;
-      
+        
     constructor(private app:App,public http: Http, public storage: Storage, public loadingCtrl: LoadingController) {
         
     
@@ -20,17 +20,20 @@ export class EnrollProvider {
     
     enrollement(matricule:string, marque:string, model:string, usage:string, puissance:number, typeCarburant:string, nombrePlaces:number, NFCid:string, nom:string, prenom:string, telephone:number, proprietaire:string){
         
-        this.storage.get('mytoken').then((data) =>{
+         this.storage.get('mytoken').then((data) =>{
           this.token=data;
           console.log(this.token);
-        });  
+        });   
            
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', 'Bearer ' +this.token);
-        headers.append('Accept','application/json');
-        headers.append('Access-Control-Allow-Origin' , '*');
-        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        //headers.append('Access-Control-Allow-Origin' , '*');
+        //headers.append('Access-Control-Allow-Methods', 'POST');        
+        headers.append('Authorization', 'Bearer '+this.token);
+        //headers.append('Accept','application/json');
+
+        
+
     
         let body = {
             matricule: matricule,

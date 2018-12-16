@@ -23,7 +23,7 @@
             <!-- <img src="assets/icon/car-badge.png"/> -->
       
        
-          <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+          <p *ngIf="submitAttempt" style="color: #ea6153;">Merci de remplir tous les champs avec précision</p>
                               
         
           <ion-list class="formSlideOne" no-lines>
@@ -155,7 +155,7 @@
                   <!-- telephone -->
                   <ion-item>
                       <ion-label floating><img class="icon-input" src="assets/icon/phone.png"/>Telephone</ion-label>
-                      <ion-input  [(ngModel)]="telephone" [class.invalid]="!slideTwoForm.controls.telephone.valid && (slideTwoForm.controls.telephone.dirty || submitAttempt)" formControlName="telephone" type="text"></ion-input>
+                      <ion-input  [(ngModel)]="telephone" [class.invalid]="!slideTwoForm.controls.telephone.valid && (slideTwoForm.controls.telephone.dirty || submitAttempt)" formControlName="telephone" type="number"></ion-input>
                   </ion-item>
                   <ion-item *ngIf="!slideTwoForm.controls.telephone.valid && !slideTwoForm.controls.telephone.pending && (slideTwoForm.controls.telephone.dirty || submitAttempt)">
                       <p>Merci d'entrer un numero de telephone valide</p>

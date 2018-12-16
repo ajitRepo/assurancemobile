@@ -76,6 +76,7 @@ export class EnrollListPage {
     }, err => {
       console.log(err)
       let e = err.status
+      console.log(err.status);
       if(e===0){
         this.loadData()
       }

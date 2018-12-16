@@ -55,8 +55,10 @@ export class LoginPage {
     .subscribe(data =>{
       this.Token=data.values.token;
       this.storage.clear();
+      
       this.setToken(this.Token);
-   
+      console.log(this.Token);
+     
       if(data.code==0){
         
         let message = data.message
