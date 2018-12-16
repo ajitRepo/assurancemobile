@@ -12,10 +12,13 @@
  
         .invalid {
             border: 1px solid #ea6153;
+            
         }
         .valid {
             border: 1px solid #32db64;
-
+        }
+        .errorMess {
+            color: #ea6153;
         }
 
         .formSlideOne {  

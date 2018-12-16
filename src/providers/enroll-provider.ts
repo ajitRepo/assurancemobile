@@ -9,14 +9,14 @@ import { Storage } from '@ionic/storage';
 export class EnrollProvider {
 
       loading: any;
-<<<<<<< HEAD
-      token:string;
-        
-=======
       token:string="";
       
->>>>>>> 1a971cb86e06c242858939db1fd8411b872a74f2
     constructor(private app:App,public http: Http, public storage: Storage, public loadingCtrl: LoadingController) {
+
+      this.storage.get('mytoken').then((data) =>{
+        this.token=data;
+        console.log(this.token);
+      });  
 
     
     }
@@ -25,23 +25,13 @@ export class EnrollProvider {
  
     
     enrollement(matricule:string, marque:string, model:string, usage:string, puissance:number, typeCarburant:string, nombrePlaces:number, NFCid:string, nom:string, prenom:string, telephone:number, proprietaire:string){
-        
-<<<<<<< HEAD
-         this.storage.get('mytoken').then((data) =>{
-          this.token=data;
-          console.log(this.token);
-        });   
-           
-=======
+          
 
         console.log("Token "+this.token)
->>>>>>> 1a971cb86e06c242858939db1fd8411b872a74f2
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        //headers.append('Access-Control-Allow-Origin' , '*');
-        //headers.append('Access-Control-Allow-Methods', 'POST');        
         headers.append('Authorization', 'Bearer '+this.token);
-        //headers.append('Accept','application/json');
+    
 
         
 

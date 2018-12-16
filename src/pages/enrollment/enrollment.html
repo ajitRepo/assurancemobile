@@ -36,7 +36,7 @@
                       <ion-input  [(ngModel)]="matricule" formControlName="matricule" type="text" [class.invalid]="!slideOneForm.controls.matricule.valid && (slideOneForm.controls.matricule.dirty || submitAttempt)"></ion-input>
                   </ion-item>      
                   <ion-item *ngIf="!slideOneForm.controls.matricule.valid  && (slideOneForm.controls.matricule.dirty || submitAttempt)">
-                      <p>Merci d'entrer un matricule valide.</p>
+                      <p class="errorMess">Merci d'entrer un matricule valide.</p>
                   </ion-item>
                   <!-- marque -->
                   <ion-item>
@@ -44,7 +44,7 @@
                       <ion-input  [(ngModel)]="marque" formControlName="marque" type="text" [class.invalid]="!slideOneForm.controls.marque.valid && (slideOneForm.controls.marque.dirty || submitAttempt)"></ion-input>
                   </ion-item>   
                   <ion-item *ngIf="!slideOneForm.controls.marque.valid  && (slideOneForm.controls.marque.dirty || submitAttempt)">
-                      <p>Merci d'entrer une marque valide</p>
+                      <p class="errorMess">Merci d'entrer une marque valide</p>
                   </ion-item>
                    <!-- model -->
                   <ion-item>
@@ -52,7 +52,7 @@
                           <ion-input  [(ngModel)]="model" formControlName="model" type="text" [class.invalid]="!slideOneForm.controls.model.valid && (slideOneForm.controls.model.dirty || submitAttempt)"></ion-input>
                   </ion-item>       
                   <ion-item *ngIf="!slideOneForm.controls.model.valid  && (slideOneForm.controls.model.dirty || submitAttempt)">
-                      <p>Merci d'entrer un model valide</p>
+                      <p class="errorMess">Merci d'entrer un model valide</p>
                   </ion-item>
                   <!-- usage -->
                   <ion-item>
@@ -77,7 +77,7 @@
                 </ion-item> -->
                 
                   <ion-item *ngIf="!slideOneForm.controls.puissance.valid  && (slideOneForm.controls.puissance.dirty || submitAttempt)">
-                      <p>Merci d'entrer une valeur valide.</p>
+                      <p class="errorMess">Merci d'entrer une valeur valide.</p>
                   </ion-item>
                   <!-- type de carburant -->
                   <ion-item>
@@ -93,7 +93,7 @@
                       <ion-input  [(ngModel)]="nombrePlaces"formControlName="nombrePlaces" type="number" [class.invalid]="!slideOneForm.controls.nombrePlaces.valid && (slideOneForm.controls.nombrePlaces.dirty || submitAttempt)"></ion-input>
                   </ion-item> 
                   <ion-item *ngIf="!slideOneForm.controls.nombrePlaces.valid  && (slideOneForm.controls.nombrePlaces.dirty || submitAttempt)">
-                      <p>Merci d'entrer une valeur valide.</p>
+                      <p class="errorMess">Merci d'entrer une valeur valide.</p>
                   </ion-item>
                   
        
@@ -111,9 +111,9 @@
               </div>
 
               <h3>ID CARTE</h3>
-              <p>
+              <h5>
                   Placer la carte à l'arrière du telephone<br/>
-              </p>
+              </h5>
               <!-- <p>NB: la fonction NFC doit être activée</p> -->
               <!-- <button ion-button clear>Activer NFC</button>       -->
           </div>
@@ -142,7 +142,7 @@
                       <ion-input [(ngModel)]="nom" [class.invalid]="!slideTwoForm.controls.nom.valid && (slideTwoForm.controls.nom.dirty || submitAttempt)" formControlName="nom" type="text"></ion-input>            
                   </ion-item>
                   <ion-item *ngIf="!slideTwoForm.controls.nom.valid && !slideTwoForm.controls.nom.pending && (slideTwoForm.controls.nom.dirty || submitAttempt)">
-                      <p>Merci d'entrer un nom valide</p>
+                      <p class="errorMess">Merci d'entrer un nom valide</p>
                   </ion-item>
                   <!-- prenom -->
                   <ion-item>
@@ -150,15 +150,15 @@
                       <ion-input  [(ngModel)]="prenom"[class.invalid]="!slideTwoForm.controls.prenom.valid && (slideTwoForm.controls.prenom.dirty || submitAttempt)" formControlName="prenom" type="text"></ion-input>
                   </ion-item>
                   <ion-item *ngIf="!slideTwoForm.controls.prenom.valid && !slideTwoForm.controls.prenom.pending && (slideTwoForm.controls.prenom.dirty || submitAttempt)">
-                      <p>Merci d'entrer un prenom valide</p>
+                      <p class="errorMess">Merci d'entrer un prenom valide</p>
                   </ion-item>
                   <!-- telephone -->
                   <ion-item>
                       <ion-label floating><img class="icon-input" src="assets/icon/phone.png"/>Telephone</ion-label>
-                      <ion-input  [(ngModel)]="telephone" [class.invalid]="!slideTwoForm.controls.telephone.valid && (slideTwoForm.controls.telephone.dirty || submitAttempt)" formControlName="telephone" type="number"></ion-input>
+                      <ion-input  [(ngModel)]="telephone" [class.invalid]="!slideTwoForm.controls.telephone.valid && (slideTwoForm.controls.telephone.dirty || submitAttempt)" formControlName="telephone" type="telephone"></ion-input>
                   </ion-item>
                   <ion-item *ngIf="!slideTwoForm.controls.telephone.valid && !slideTwoForm.controls.telephone.pending && (slideTwoForm.controls.telephone.dirty || submitAttempt)">
-                      <p>Merci d'entrer un numero de telephone valide</p>
+                      <p class="errorMess">Merci d'entrer un numero de telephone valide</p>
                   </ion-item>       
                   <!-- proprietaire -->
                   <ion-item>

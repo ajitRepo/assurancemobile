@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {  AlertController, LoadingController, App, PopoverController } from 'ionic-angular';
+import {  AlertController, LoadingController, App, PopoverController, NavController } from 'ionic-angular';
 //import { AgeValidator } from  '../../validators/age';
 //import { UsernameValidator } from  '../../validators/username';
 import { EnrollProvider } from '../../providers/enroll-provider';
@@ -44,7 +44,7 @@ export class EnrollmentPage {
     
     submitAttempt: boolean = false;
 
-  constructor(private app:App, public alertCtrl: AlertController, public http: Http,
+  constructor(private app:App, public navCtrl: NavController, public alertCtrl: AlertController, public http: Http,
      public loadingCtrl: LoadingController, private nfc:NFC, private ndef:Ndef,  
      public EnrollService: EnrollProvider,public UserService: UserProvider,
      public formBuilder: FormBuilder, public popoverCtrl: PopoverController
@@ -128,7 +128,7 @@ export class EnrollmentPage {
           let message = data.message;
         if(data.code==0){   
           this.slideOneForm.reset();
-          this.slideTwoForm.reset();    
+          this.slideTwoForm.reset(); 
 
           let alert = this.alertCtrl.create({
             //title: 'Enrollement',
@@ -142,8 +142,6 @@ export class EnrollmentPage {
            this.dismissLoading()
            let error = err.json();
           let message = error.message;
-          console.log(error.code);
-          console.log(error.status);
            if (error.code!=undefined) {
             let alert = this.alertCtrl.create({
               //title: 'Erreur',
