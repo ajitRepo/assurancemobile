@@ -127,14 +127,14 @@
                   <!-- ID NFC -->
                   <ion-item>
                        <!-- <ion-label floating><img class="icon-input" src="assets/icon/foul.png"/>Id NFC</ion-label> -->
-                      <ion-input [(ngModel)]="NFCid" [class.invalid]="!slideTwoForm.controls.NFCid.valid && (slideTwoForm.controls.NFCid.dirty || submitAttempt)"
+                      <ion-input hidden [(ngModel)]="NFCid" [class.invalid]="!slideTwoForm.controls.NFCid.valid && (slideTwoForm.controls.NFCid.dirty || submitAttempt)"
                       [class.valid]="slideTwoForm.controls.NFCid.valid && (!slideTwoForm.controls.NFCid.dirty || submitAttempt)" formControlName="NFCid" type="text"></ion-input>
                   </ion-item>
                   <ion-item *ngIf="!slideTwoForm.controls.NFCid.valid && !slideTwoForm.controls.NFCid.pending && (slideTwoForm.controls.NFCid.dirty || submitAttempt)">
-                      <p class="valid">ID non récuperé, Placer la carte à l'arrière du telephone</p>
+                      <p class="errorMess">ID non récuperé, Placer la carte à l'arrière du telephone</p>
                   </ion-item>
                   <ion-item *ngIf="slideTwoForm.controls.NFCid.valid && slideTwoForm.controls.NFCid.pending && (!slideTwoForm.controls.NFCid.dirty || submitAttempt)">
-                      <p>ID Récupérer avec success</p>
+                      <p class="successMess">ID Récupérer avec success</p>
                   </ion-item>
                   <!-- nom -->
                   <ion-item>
