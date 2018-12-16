@@ -9,22 +9,20 @@ import { Storage } from '@ionic/storage';
 export class EnrollProvider {
 
       loading: any;
-      token:string;
+      token:string="";
       
     constructor(private app:App,public http: Http, public storage: Storage, public loadingCtrl: LoadingController) {
-        
+
     
     }
+
     
  
     
     enrollement(matricule:string, marque:string, model:string, usage:string, puissance:number, typeCarburant:string, nombrePlaces:number, NFCid:string, nom:string, prenom:string, telephone:number, proprietaire:string){
         
-        this.storage.get('mytoken').then((data) =>{
-          this.token=data;
-          console.log(this.token);
-        });  
-           
+
+        console.log("Token "+this.token)
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'Bearer ' +this.token);
