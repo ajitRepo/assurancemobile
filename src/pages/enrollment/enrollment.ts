@@ -8,6 +8,7 @@ import { NFC, Ndef } from '@ionic-native/nfc';
 import { Http } from '@angular/http';
 import { UserProvider } from '../../providers/user-provider';
 import { PopoverComponent } from '../../components/popover/popover';
+import { AuthProvider } from '../../providers/auth-provider';
 
  
 
@@ -46,7 +47,8 @@ export class EnrollmentPage {
   constructor(private app:App, public alertCtrl: AlertController, public http: Http,
      public loadingCtrl: LoadingController, private nfc:NFC, private ndef:Ndef,  
      public EnrollService: EnrollProvider,public UserService: UserProvider,
-     public formBuilder: FormBuilder, public popoverCtrl: PopoverController) {
+     public formBuilder: FormBuilder, public popoverCtrl: PopoverController
+    ) {
 
     
 
@@ -122,7 +124,8 @@ export class EnrollmentPage {
       this.presentLoading();
       this.EnrollService.enrollement(this.matricule, this.marque, this.model, this.usage, this.puissance, this.typeCarburant, this.nombrePlaces, this.NFCid, this.nom, this.prenom, this.telephone, this.proprietaire)
       .subscribe(data =>{
-        let message = data.message;
+          this.dismissLoading();
+          let message = data.message;
         if(data.code==0){   
           this.slideOneForm.reset();
           this.slideTwoForm.reset();    
@@ -132,12 +135,12 @@ export class EnrollmentPage {
             subTitle: message,
             buttons: ['OK']
           });
-          this.dismissLoading();
           alert.present();
         }
       },
          err =>{
-          let error = err.json();
+           this.dismissLoading()
+           let error = err.json();
           let message = error.message;
           console.log(error.code);
            if (error.code!=undefined) {
@@ -146,8 +149,7 @@ export class EnrollmentPage {
               subTitle: message,
               buttons: ['OK']
             });
-            this.dismissLoading()
-            alert.present();        
+            alert.present();
            }
          });     
     }
