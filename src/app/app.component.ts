@@ -17,6 +17,7 @@ import {PopoverComponent} from '../components/popover/popover'
   templateUrl: 'app.html'
 })
 export class MyApp {
+  
   @ViewChild(Nav) nav: Nav;
 
   rootPage:any = LoginPage;
